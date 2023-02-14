@@ -10,7 +10,7 @@
     text-align: left;
   }
   
-  h1 {
+  h1.serviceDetails {
     text-align: center;
     font-weight: 200;
     margin-left: 30px;

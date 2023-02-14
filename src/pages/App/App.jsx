@@ -9,6 +9,8 @@ import NavBar from '../../components/NavBar/NavBar';
 import ServicesListPage from "../ServicesListPage/ServicesListPage";
 import ServiceDetailPage from "../ServiceDetailPage/ServiceDetailPage";
 import { services } from "../../data.js";
+import HomePage from "../HomePage/HomePage";
+
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -19,6 +21,10 @@ export default function App() {
         <>
           <NavBar user={user} setUser={setUser} />
           <Routes>
+          <Route
+              path="/"
+              element={<HomePage  />}
+            />
             <Route
               path="/services"
               element={<ServicesListPage services={services} />}

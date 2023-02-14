@@ -4,6 +4,12 @@
     justify-content: center;
     align-items: center;
   }
+
+  h1 {
+    text-align: center;
+    font-weight: 300;
+
+  }
   
   body {
     background-color: rgba(250, 219, 216, 0.5);

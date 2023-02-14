@@ -13,7 +13,7 @@ export default function ServiceDetailPage({ services }) {
   return (
     <div className="flex">
       <div>
-        <h1>{service.title}</h1>
+        <h1 className="serviceDetails">{service.title}</h1>
         <ul>
           <div className="ul-title">
             {service.list}

@@ -2,6 +2,7 @@
     display: flex;
     justify-content: center;
     height: 50px;
+    text-decoration: none;
   }
   
   .h1-container {
@@ -15,10 +16,12 @@
     background-position: 100%;
     background-size: 400%;
     transition: background 350ms ease-in-out;
+    text-decoration: none;
   }
   
   .fourth:hover {
     background-position: 0;
+    text-decoration: none;
   }
   
   .btn {
@@ -41,6 +44,7 @@
     text-transform: uppercase;
     font-family: "Montserrat", sans-serif;
     font-weight: 700;
+    text-decoration: none;
   }
   
   .btn:hover {
