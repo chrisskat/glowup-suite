@@ -18,6 +18,9 @@ export default function NavBar(props) {
       <NavLink className="flex-item" to="/services">
         <button className="btn fourth">View Services</button>
       </NavLink>
+      <NavLink className="flex-item" to="/reviews">
+        <button className="btn fourth">Reviews</button>
+      </NavLink>
       <NavLink className="flex-item" to="/booking">
         <button className="btn fourth">Bookings</button>
       </NavLink>

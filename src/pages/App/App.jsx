@@ -10,6 +10,7 @@ import ServicesListPage from "../ServicesListPage/ServicesListPage";
 import ServiceDetailPage from "../ServiceDetailPage/ServiceDetailPage";
 import { services } from "../../data.js";
 import HomePage from "../HomePage/HomePage";
+import Reviews from "../Reviews/Reviews";
 
 
 export default function App() {
@@ -32,6 +33,10 @@ export default function App() {
             <Route
               path="/services/:serviceName"
               element={<ServiceDetailPage services={services} />}
+            />
+            <Route
+              path="/reviews"
+              element={<Reviews />}
             />
           </Routes>
         </>
