@@ -1,4 +1,4 @@
-import { getToken } from './users-service';
+import { getToken } from '../utilities/users-service';
 
 const BASE_URL = '/api/users';
 

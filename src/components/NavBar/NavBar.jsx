@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import "./NavBar.css";
+import { NavLink } from 'react-router-dom';
 import * as usersService from '../../utilities/users-service';
 
 export default function NavBar(props) {
@@ -10,14 +11,17 @@ export default function NavBar(props) {
   }
 
   return (
-    <nav>
-      <Link to="/orders">Order History</Link>
-      &nbsp; | &nbsp;
-      <Link to="/orders/new">New Order</Link>
-      &nbsp; | &nbsp;
-      <span>Welcome, {props.user.name}</span>
-      &nbsp; | &nbsp;
-      <Link to="" onClick={handleLogOut}>Log Out</Link>
-    </nav>
+    <div className="flex-container">
+      <NavLink className="flex-item" to="/">
+        <button className="btn fourth">Home</button>
+      </NavLink>
+      <NavLink className="flex-item" to="/services">
+        <button className="btn fourth">View Services</button>
+      </NavLink>
+      <NavLink className="flex-item" to="/booking">
+        <button className="btn fourth">Bookings</button>
+      </NavLink>
+      <NavLink className="flex-item" to=""><button className="btn fourth" onClick={handleLogOut}>Log Out</button></NavLink>
+      </div>
   );
 }
