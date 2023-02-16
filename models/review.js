@@ -7,16 +7,15 @@ const ReviewSchema = new Schema({
     ref: 'User',
     required: true
   },
-  product: {
-    type: Schema.Types.ObjectId,
-    ref: 'Product',
+  service: {
+    type: String,
     required: true
   },
   rating: {
     type: Number,
     required: true
   },
-  text: {
+  comment: {
     type: String,
     required: true
   }

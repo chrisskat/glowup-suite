@@ -1,4 +1,4 @@
-const Review = require('../models/review');
+const Review = require('../../models/review');
 
 module.exports = {
   index,
@@ -25,11 +25,15 @@ function newReview(req, res) {
 }
 
 async function create(req, res) {
-  req.body.author = req.user._id;
-  const review = new Review(req.body);
+  req.body.user = req.user._id;
+  const review = new Review({
+    service: req.body.service,
+    comment: req.body.comment,
+    rating: req.body.rating,
+  });
   try {
     await review.save();
-    res.redirect(`/reviews/${review._id}`);
+    res.redirect(`/reviews/index`);
   } catch (err) {
     console.log(err);
     res.render('reviews/new');
