@@ -8,7 +8,7 @@ router.get('/new', ensureLoggedIn, reviewsCtrl.new);
 router.post('/', ensureLoggedIn, reviewsCtrl.create);
 router.get('/:id', reviewsCtrl.show);
 router.get('/:id/edit', ensureLoggedIn, reviewsCtrl.edit);
-router.put('/', ensureLoggedIn, reviewsCtrl.update);
+router.put('/:id', ensureLoggedIn, reviewsCtrl.update);
 router.delete('/:id', ensureLoggedIn, reviewsCtrl.delete);
 
 // router.get('/check-token', ensureLoggedIn, usersCtrl.checkToken);

@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import * as reviewsAPI from '../../utilities/reviews-api'
 
 export default function EditReviewPage({ review, onSave }) {
+    let location = useLocation();
+    console.log(location.state.review)
     const navigate = useNavigate();
+    var localReviewState = location.state.review
   const [reviewData, setReviewData] = useState({
     service: '',
     comment: '',
@@ -13,7 +16,7 @@ export default function EditReviewPage({ review, onSave }) {
   
   async function handleSubmit(e) {
     e.preventDefault()
-    const updateReview2 = await reviewsAPI.updateReview(reviewData)
+    const updateReview2 = await reviewsAPI.updateReview(localReviewState, reviewData)
     console.log(updateReview2)
     setReviewData(updateReview2)
     navigate("/reviews");
@@ -39,6 +42,7 @@ export default function EditReviewPage({ review, onSave }) {
 //     setFormData(updateReview2);
 //     // onSave(formData);
 //   }
+console.log(reviewData)
   return (
     <div>
         <h1>Edit Page</h1>

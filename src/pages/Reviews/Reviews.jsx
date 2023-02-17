@@ -1,17 +1,30 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import  React, { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "./Reviews.css";
 import NewReviewPage from "../NewReviewPage/NewReviewPage";
 import ReviewItem from "../../components/ReviewItem/ReviewItem";
 import EditReviewPage from "../EditReviewPage/EditReviewPage";
+import * as reviewsAPI from "../../utilities/reviews-api"
 
-export default function Reviews({ reviews, addReview, deleteReview, }) {
+export default function Reviews({ addReview, deleteReview, }) {
+    const navigate = useNavigate();
 const handleDelete = (reviewid) => {
     console.log(`Delete button clicked for review ${reviewid}`);
     deleteReview(reviewid);
     window.location.reload();
 };
 
+const [reviews, setReviews] = useState([]);
+
+useEffect(function () {
+
+    async function getReviews() {
+      const reviews = await reviewsAPI.getAll()
+      setReviews(reviews)
+    }
+    getReviews()
+
+  }, []);
 
     return (
         <div>
@@ -29,9 +42,14 @@ const handleDelete = (reviewid) => {
                 rating={review.rating}
               />
               <button onClick={() => handleDelete(review._id)}>Delete</button>
-              <button>
+              {/* <button>
               <Link to={`/${review._id}/edit`}>Edit</Link>
-            </button>
+            </button> */}
+              <button onClick={() => {
+                navigate(`/${review._id}/edit`, {state: {review: review}})
+                }}>
+                    <p>Edit</p>
+                    </button>
               </div>
             ))}
           </div>

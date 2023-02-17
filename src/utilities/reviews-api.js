@@ -26,10 +26,7 @@ export function deleteReview(reviewId) {
     return sendRequest(`${BASE_URL}/${reviewId}`, 'DELETE')
 }
 
-export function updateReview(reviewId) {
-    return sendRequest(`${BASE_URL}/`, 'PUT', { reviewId });
+export function updateReview(review, updatedReview) {
+    console.log(review, "!!!!!!!!!")
+    return sendRequest(`${BASE_URL}/${review._id}`, 'PUT', { updatedReview });
   }
-
-export function editReview(reviewId) {
-    return sendRequest(`${BASE_URL}/${reviewId}/edit`, { reviewId } )
-}

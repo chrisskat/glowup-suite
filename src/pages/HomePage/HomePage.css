@@ -11,7 +11,7 @@ p.intro {
     line-height: 1.6em;
     display: inline-block;
     margin-top: 80px;
-    margin-left: 500px;
+    margin-left: 670px;
     max-width: 35%;
 }
 
@@ -30,8 +30,8 @@ p.second {
 
 img.suite-pic {
     position: absolute;
-    top: 120px;
-    left: 150px;
+    top: 70px;
+    left: 350px;
     width: 450px;
     height: 450px;
 }
@@ -39,7 +39,7 @@ img.suite-pic {
 img.suite-pic2 {
     position: absolute;
     top: 590px;
-    right: 150px;
+    right: 250px;
     width: 430px;
     height: 440px;
 }

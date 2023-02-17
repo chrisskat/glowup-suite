@@ -50,6 +50,7 @@ async function show(req, res) {
 }
 
 async function edit(req, res) {
+  
   Review.findById(req.body._id, (err, foundReview) => {
     if (err) {
       console.log(err)
@@ -69,29 +70,33 @@ async function edit(req, res) {
 }
 
 async function update(req, res) {
-  Review.findByIdAndUpdate(
-    req.body.id,
-    req.body,
-    {
-      new: true,
-    },
-    (err, updatedReview) => {
-      res.json(updatedReview)
-    }
-  )
-  // try {
-  //   const review = await Review.findById(req.params.id);
-  //   if (!review.author.equals(req.user._id)) {
-  //     return res.redirect(`/reviews/${req.params.id}`);
+  // req.body.review.user = req.user._id;
+  // Review.findByIdAndUpdate(
+  //   req.body.id,
+  //   req.body,
+  //   // {
+  //   //   new: true,
+  //   // },
+  //   (err, updatedReview) => {
+  //     res.json(updatedReview)
   //   }
-  //   review.title = req.body.title;
-  //   review.body = req.body.body;
-  //   await review.save();
-  //   res.redirect(`/reviews/${req.params.id}`);
-  // } catch (err) {
-  //   console.log(err);
-  //   res.redirect('/');
-  // }
+  // )
+  console.log(req.body)
+  try {
+    console.log(req.body.review)
+    const review = await Review.findById(req.params.id);
+    // if (!review.author.equals(req.user._id)) {
+    //   return res.redirect(`/reviews/${req.params.id}`);
+    // }
+    review.service = req.body.updatedReview.service;
+    review.comment = req.body.updatedReview.comment;
+    review.rating = req.body.updatedReview.rating;
+    await review.save();
+    res.json(review);
+  } catch (err) {
+    console.log(err);
+    res.redirect('/');
+  }
 }
 
 async function deleteReview(req, res) {
