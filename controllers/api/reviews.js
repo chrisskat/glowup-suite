@@ -13,7 +13,7 @@ module.exports = {
 async function index(req, res) {
   try {
     const reviews = await Review.find({});
-    res.render('reviews/index', { reviews });
+    res.json(reviews);
   } catch (err) {
     console.log(err);
     res.redirect('/');
@@ -25,18 +25,15 @@ function newReview(req, res) {
 }
 
 async function create(req, res) {
-  req.body.user = req.user._id;
-  const review = new Review({
-    service: req.body.service,
-    comment: req.body.comment,
-    rating: req.body.rating,
-  });
+  req.body.review.user = req.user._id;
+  console.log(req.body)
+  const review = new Review(req.body.review);
   try {
     await review.save();
-    res.redirect(`/reviews/index`);
+    // res.redirect(`/reviews/index`);
+    res.json(review)
   } catch (err) {
-    console.log(err);
-    res.render('reviews/new');
+    console.log(err)
   }
 }
 
@@ -53,44 +50,61 @@ async function show(req, res) {
 }
 
 async function edit(req, res) {
-  try {
-    const review = await Review.findById(req.params.id);
-    if (!review.author.equals(req.user._id)) {
-      return res.redirect(`/reviews/${req.params.id}`);
+  Review.findById(req.body._id, (err, foundReview) => {
+    if (err) {
+      console.log(err)
     }
-    res.render('reviews/edit', { review });
-  } catch (err) {
-    console.log(err);
-    res.redirect('/');
-  }
+    res.json(foundReview)
+  })
+  // try {
+  //   const review = await Review.findById(req.params.id);
+  //   if (!review.author.equals(req.user._id)) {
+  //     return res.redirect(`/reviews/${req.params.id}`);
+  //   }
+  //   res.render('reviews/edit', { review });
+  // } catch (err) {
+  //   console.log(err);
+  //   res.redirect('/');
+  // }
 }
 
 async function update(req, res) {
-  try {
-    const review = await Review.findById(req.params.id);
-    if (!review.author.equals(req.user._id)) {
-      return res.redirect(`/reviews/${req.params.id}`);
+  Review.findByIdAndUpdate(
+    req.body.id,
+    req.body,
+    {
+      new: true,
+    },
+    (err, updatedReview) => {
+      res.json(updatedReview)
     }
-    review.title = req.body.title;
-    review.body = req.body.body;
-    await review.save();
-    res.redirect(`/reviews/${req.params.id}`);
-  } catch (err) {
-    console.log(err);
-    res.redirect('/');
-  }
+  )
+  // try {
+  //   const review = await Review.findById(req.params.id);
+  //   if (!review.author.equals(req.user._id)) {
+  //     return res.redirect(`/reviews/${req.params.id}`);
+  //   }
+  //   review.title = req.body.title;
+  //   review.body = req.body.body;
+  //   await review.save();
+  //   res.redirect(`/reviews/${req.params.id}`);
+  // } catch (err) {
+  //   console.log(err);
+  //   res.redirect('/');
+  // }
 }
 
 async function deleteReview(req, res) {
   try {
     const review = await Review.findById(req.params.id);
-    if (!review.author.equals(req.user._id)) {
-      return res.redirect(`/reviews/${req.params.id}`);
-    }
+    // if (!review.author.equals(req.user._id)) {
+    //   return res.redirect(`/reviews/${req.params.id}`);
+    // }
     await review.remove();
-    res.redirect('/reviews');
+    res.json('deleted')
+    // res.redirect('/reviews');
   } catch (err) {
     console.log(err);
-    res.redirect('/');
+    // res.redirect('/');
   }
 }

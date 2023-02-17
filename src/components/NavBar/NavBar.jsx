@@ -21,9 +21,6 @@ export default function NavBar(props) {
       <NavLink className="flex-item" to="/reviews">
         <button className="btn fourth">Reviews</button>
       </NavLink>
-      <NavLink className="flex-item" to="/booking">
-        <button className="btn fourth">Bookings</button>
-      </NavLink>
       <NavLink className="flex-item" to=""><button className="btn fourth" onClick={handleLogOut}>Log Out</button></NavLink>
       </div>
   );

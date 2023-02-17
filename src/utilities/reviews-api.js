@@ -21,3 +21,15 @@ export function newReview() {
 export function createReview(review) {
     return sendRequest(`${BASE_URL}/create`, 'POST', {review});
 }
+
+export function deleteReview(reviewId) {
+    return sendRequest(`${BASE_URL}/${reviewId}`, 'DELETE')
+}
+
+export function updateReview(reviewId) {
+    return sendRequest(`${BASE_URL}/`, 'PUT', { reviewId });
+  }
+
+export function editReview(reviewId) {
+    return sendRequest(`${BASE_URL}/${reviewId}/edit`, { reviewId } )
+}

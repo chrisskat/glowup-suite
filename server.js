@@ -16,10 +16,16 @@ app.use(favicon(path.join(__dirname,'build', 'favicon.ico')))
 app.use(express.static(path.join(__dirname, 'build')))
 app.use(require('./config/checkToken'))
 app.use('/api/users', require('./routes/api/users'))
+app.use('/api/reviews', require('./routes/api/reviews'))
 
 app.get('/*', function (req, res) {
     res.sendFile(path.join(__dirname, 'build', 'index.html'))
 })
+
+app.delete('/reviews/:id', (req, res) => {
+    const id = req.params.id;
+  });
+
 
 const port = process.env.PORT || 3001
 

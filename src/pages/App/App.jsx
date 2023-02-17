@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import { getUser } from '../../utilities/users-service';
@@ -12,7 +12,8 @@ import { services } from "../../data.js";
 import HomePage from "../HomePage/HomePage";
 import Reviews from "../Reviews/Reviews";
 import NewReviewPage from "../NewReviewPage/NewReviewPage";
-
+import * as reviewsAPI from "../../utilities/reviews-api"
+import EditReviewPage from "../EditReviewPage/EditReviewPage"
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -21,6 +22,36 @@ export default function App() {
   function addReview(newReview) {
     setReviews([...reviews, newReview]);
   }
+
+  function deleteReview(id) {
+   
+      reviewsAPI.deleteReview(id)
+      setReviews([...reviews, reviews.filter((review) => review.id !== id)]);
+
+  }
+
+  function editReview(updatedReview) {
+    reviewsAPI.updateReview(updatedReview)
+      .then((updatedReview) => {
+        const newReviews = reviews.map((review) =>
+          review.id === updatedReview.id ? updatedReview : review
+        );
+        setReviews(newReviews);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
+
+  useEffect(function () {
+
+    async function getReviews() {
+      const reviews = await reviewsAPI.getAll()
+      setReviews(reviews)
+    }
+    getReviews()
+
+  }, []);
 
   return (
     <div className="App">
@@ -42,12 +73,17 @@ export default function App() {
             />
             <Route path="/reviews" 
               element={<Reviews reviews={reviews} 
-              addReview={addReview} />} 
+              deleteReview={deleteReview} />} 
             />
 
             <Route path="/new-review"
               element={<NewReviewPage 
               addReview={addReview} />} 
+            />
+
+            <Route path="/:id/edit"
+              element={<EditReviewPage
+              editReview={editReview} />} 
             />
 
           </Routes>
