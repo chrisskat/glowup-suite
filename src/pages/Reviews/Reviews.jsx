@@ -41,7 +41,12 @@ useEffect(function () {
                 comment={review.comment}
                 rating={review.rating}
               />
+                
+               
+
               <button onClick={() => handleDelete(review._id)}>Delete</button>
+
+
               {/* <button>
               <Link to={`/${review._id}/edit`}>Edit</Link>
             </button> */}
@@ -49,7 +54,7 @@ useEffect(function () {
                 navigate(`/${review._id}/edit`, {state: {review: review}})
                 }}>
                     <p>Edit</p>
-                    </button>
+               </button>
               </div>
             ))}
           </div>

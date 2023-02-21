@@ -28,5 +28,5 @@ export function deleteReview(reviewId) {
 
 export function updateReview(review, updatedReview) {
     console.log(review, "!!!!!!!!!")
-    return sendRequest(`${BASE_URL}/${review._id}`, 'PUT', { updatedReview });
+    return sendRequest(`${BASE_URL}/${review._id}`, 'PUT', { review, updatedReview });
   }
