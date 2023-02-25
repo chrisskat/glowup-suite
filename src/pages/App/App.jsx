@@ -58,7 +58,7 @@ export default function App() {
           <NavBar user={user} setUser={setUser} />
           <Routes>
           <Route
-              path="/"
+              path="/glowup-suite"
               element={<HomePage  />}
             />
             <Route
