@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import './App.css';
 import { getUser } from '../../utilities/users-service';
-import AuthPage from '../AuthPage/AuthPage';
+// import AuthPage from '../AuthPage/AuthPage';
 // import NewOrderPage from '../NewOrderPage/NewOrderPage';
 // import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage';
 import NavBar from '../../components/NavBar/NavBar';
@@ -55,12 +55,10 @@ export default function App() {
 
   return (
     <div className="App">
-      {user ? (
-        <>
           <NavBar user={user} setUser={setUser} />
           <Routes>
           <Route
-              path="/"
+              path="/glowup-suite"
               element={<HomePage  />}
             />
             <Route
@@ -87,10 +85,10 @@ export default function App() {
             />
 
           </Routes>
-        </>
+          {/* </>
       ) : (
         <AuthPage setUser={setUser} />
-      )}
+      )} */}
     </div>
   );
 }
