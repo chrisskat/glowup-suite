@@ -12,7 +12,7 @@
 - Express
 
 # Link to the App:
-- https://chrisskat.github.io/
+- https://chrisskat.github.io/glowup-suite
 
 # Screenshot of the App: 
 - ![Screen Shot 2023-02-17 at 12 57 25 AM](https://user-images.githubusercontent.com/117867407/219561368-fe86443b-5888-4645-b232-2349036c5136.png)
