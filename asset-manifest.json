@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/glowup-suite/static/css/main.4586b1fb.css",
-    "main.js": "/glowup-suite/static/js/main.a6ab4462.js",
+    "main.js": "/glowup-suite/static/js/main.d87d0a90.js",
     "index.html": "/glowup-suite/index.html",
     "main.4586b1fb.css.map": "/glowup-suite/static/css/main.4586b1fb.css.map",
-    "main.a6ab4462.js.map": "/glowup-suite/static/js/main.a6ab4462.js.map"
+    "main.d87d0a90.js.map": "/glowup-suite/static/js/main.d87d0a90.js.map"
   },
   "entrypoints": [
     "static/css/main.4586b1fb.css",
-    "static/js/main.a6ab4462.js"
+    "static/js/main.d87d0a90.js"
   ]
 }
