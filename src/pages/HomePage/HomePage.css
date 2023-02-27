@@ -10,8 +10,8 @@ p.intro {
     letter-spacing: 0px;
     line-height: 1.6em;
     display: inline-block;
-    margin-top: 80px;
-    margin-left: 670px;
+    margin-top: 40px;
+    margin-left: 675px;
     max-width: 35%;
 }
 
@@ -23,23 +23,16 @@ p.second {
     letter-spacing: 0px;
     line-height: 1.6em;
     display: inline-block;
-    margin-top: 160px;
-    margin-right: 550px;
+    margin-top: 10px;
+    margin-left: 675px;
     max-width: 35%;
 }
 
 img.suite-pic {
     position: absolute;
-    top: 70px;
-    left: 350px;
-    width: 450px;
-    height: 450px;
+    top: 100px;
+    left: 185px;
+    width: auto;
+    height: auto;
 }
 
-img.suite-pic2 {
-    position: absolute;
-    top: 590px;
-    right: 250px;
-    width: 430px;
-    height: 440px;
-}

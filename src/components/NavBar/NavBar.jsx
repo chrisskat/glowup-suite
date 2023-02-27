@@ -12,7 +12,7 @@ export default function NavBar(props) {
 
   return (
     <div className="flex-container">
-      <NavLink className="flex-item" to="/">
+      <NavLink className="flex-item" to="/glowup-suite">
         <button className="btn fourth">Home</button>
       </NavLink>
       <NavLink className="flex-item" to="/services">

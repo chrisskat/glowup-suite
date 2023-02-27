@@ -27,7 +27,6 @@ export default function HomePage() {
         blessed to be able to work for an amazing clientele who have become
         friends for a lifetime.
       </p>
-      <img className="suite-pic2" src="https://images.squarespace-cdn.com/content/v1/5cf57e30adb05f0001955755/58de977d-8531-46eb-bd23-08aa9a4c579b/01167549-4150-451A-B7EE-DDD67D45053E.jpeg?format=500w" alt=""/>
 
     </div>
   );
